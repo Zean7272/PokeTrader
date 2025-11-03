@@ -7,13 +7,13 @@ db = 'poketrader'
 
 # )
 
-user_engine = create_engine("mysql+mysqlconnector://pokeUser:DitIs1User@localhost/poketrader")
+user_engine = create_engine("")
 
 #admin_connection = pymysql.connections.Connection(
 
 # )
 
-admin_engine = create_engine("mysql+mysqlconnector://pokeAdmin:DitIs1Admin@localhost/poketrader")
+admin_engine = create_engine("")
 
 #----------------------------------------------
 # Voorbeeld!!!!!!!

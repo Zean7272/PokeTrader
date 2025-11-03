@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Card{% endblock %}
+
+{% block content %}
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+            <h1 class="text-3xl font-bold text-gray-800">To add a new card, choose 1 pokemon, 1 set and 1 picture:</h1>
+        </div>
+
+        <div class="flex gap-2 w-10/12 m-auto my-2 text-lg">
+            <div class="grid grid-cols-2 bg-gray-100 text-gray-600 uppercase leading-normal w-1/3 rounded-lg">
+                <p class="py-3 px-6 text-left">Pokemons</p>
+                <p class="py-3 px-6 text-right align-right"><a href="{{ url_for('admin.add_random_poke') }}">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">
+                        Add Random Pokemon
+                    </button>
+                </a></p>
+            </div>
+            <div class="grid grid-cols-2 bg-gray-100 text-gray-600 uppercase leading-normal w-1/3 rounded-lg">
+                <p class="py-3 px-6 text-left">Sets</p>
+                <p class="py-3 px-6 text-right align-right"><a href="{{ url_for('admin.admin_add_set') }}">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">
+                        Add New Set
+                    </button>
+                </a></p>
+            </div>
+            <div class="grid grid-rows-2 bg-gray-100 text-gray-600 uppercase leading-normal w-1/3 rounded-lg">
+                <p class="py-3 px-6 text-left">Picture</p>
+                <form action="{{ url_for('image.upload') }}" method="post" enctype="multipart/form-data" class="flex gap-2 py-3 px-6 text-right align-right">
+                    <input class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm shadow hover:bg-blue-600 transition w-2/3" type="file"
+                           name="pic" value="Choose picture" required/>
+                    <input class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition" type="submit"
+                           value="Upload"/>
+                </form>
+
+            </div>
+        </div>
+
+        <form class="grid grid-rows-3" method="post">
+            <div class="flex gap-8 w-10/12 bg-white shadow rounded-lg m-auto text-lg">
+                <!-- Pokemons Section -->
+                <div class="w-full">
+                    <table class="w-full border-collapse max-h-fit">
+                        <tbody class="text-gray-700 text-md">
+                        {% for row in pokemons %}
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left">
+                                    <label for="poke">{{ row[1] }}</label></td>
+                                <td class="py-3 px-6 text-right">
+                                    <input type="radio" id="poke" name="poke" value="{{ row[0] }}" required>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- Sets Section -->
+                <div class="w-full">
+                    <table class="w-full border-collapse max-h-fit">
+                        <tbody class="text-gray-700 text-md">
+                        {% for row in sets %}
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left">
+                                    <label for="set">{{ row[1] }}</label></td>
+                                <td class="py-3 px-6 text-right">
+                                    <input type="radio" id="set" name="set" value="{{ row[0] }}" required>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pic Section -->
+                <div class="w-full">
+                    <table class="w-full border-collapse max-h-fit">
+                        <tbody class="text-gray-700 text-md">
+                        {% for row in images %}
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left">
+                                    <label for="image">{{ row[1] }}</label></td>
+                                <td class="py-3 px-6 text-right">
+                                    <input type="radio" id="image" name="image" value="{{ row[0] }}" required>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition h-20 w-40 align-center m-auto my-4">
+                Add card
+            </button>
+        </form>
+    </div>
+{% endblock %}

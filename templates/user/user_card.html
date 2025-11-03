@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Card{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-8 py-8">
+
+        <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+                <h1 class="text-3xl font-bold text-gray-800">{{ card[3] }} - {{ card[7] }}</h1>
+        </div>
+
+        <div class="grid grid-cols-2 w-6/12 mx-auto my-4 p-2 border-b border-gray-300">
+            <div class="rounded-3xl p-5 mx-5">
+                <img src="{{ url_for('image.serve_image', image_id = card[8]) }}" alt="image">
+            </div>
+{#            [0=id, 1=condition, 2=value, 3=name, 4=weight, 5=height, 6=type, 7=set]#}
+            <div class="grid grid-rows-7 p-5">
+                <p class="text-lg">Pokemon name: {{ card[3] }}</p>
+                <p class="text-lg">Set: {{ card[7] }}</p>
+                <p class="text-lg">Type: {{ card[6] }}</p>
+                <p class="text-lg">Weight: {{ card[4] }}</p>
+                <p class="text-lg">Height: {{ card[5] }}</p>
+                <p class="text-lg">Condition: {{ card[1] }}</p>
+                <p class="text-lg">Value: {{ card[2] }}$</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

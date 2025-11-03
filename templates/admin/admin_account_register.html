@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Account register admin{% endblock %}
+
+{% block content %}
+
+<div class="bg-pink-800 w-1/3 m-auto p-8 rounded-3xl my-20">
+
+    <form class="text-center mt-4  flex flex-col" method="post">
+
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="username" type="text"
+               placeholder="username" required/>
+
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="email" type="text" placeholder="E-mail" required/>
+
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="ww-1" type="password" placeholder="Password"
+               required/>
+
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="ww-2" type="password"
+               placeholder="Repiet password" required/>
+
+        <select class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="role" required>
+            <option value="2">Admin</option>
+        </select>
+
+        <button class="bg-green-600 p-5 my-2 text-white w-1/3 self-end rounded-xl" type="submit">Add</button>
+
+    </form>
+</div>
+
+
+{% endblock %}

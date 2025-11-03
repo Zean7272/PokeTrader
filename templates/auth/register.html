@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+    <div class="w-10/12 m-auto flex flex-row">
+        <h1 class="text-black text-3xl w-10/12 p-8">Create a new account</h1>
+    </div>
+
+<div class="bg-yellow-400 w-1/3 m-auto p-8 rounded-3xl my-10">
+
+    <form class="text-center mt-4 flex flex-col" method="post">
+
+        <input class="p-5 my-2 bg-slate-100 text-lg rounded-xl" name="username" type="text"
+               placeholder="Username" required/>
+
+        <input class="p-5 my-2 bg-slate-100 text-lg rounded-xl" name="email" type="text" placeholder="E-mail" required/>
+
+        <input class="p-5 my-2 bg-slate-100 text-lg rounded-xl" name="pass1" type="password" placeholder="Password"
+               required/>
+
+        <ol class="w-12/12 m-auto text-left grid grid-cols-3 gap-2">
+            <li class="text-white text-sm w-12/12 p-1 col-span-3">Your password must contain at least:</li>
+            <li class="text-white text-sm w-12/12 p-1 col-span-1">15 characters</li>
+            <li class="text-white text-sm w-12/12 p-1 col-span-1">1 uppercase</li>
+            <li class="text-white text-sm w-12/12 p-1 col-span-1">1 lowercase</li>
+            <li class="text-white text-sm w-12/12 p-1 col-span-1">1 number</li>
+            <li class="text-white text-sm w-121/12 p-1 col-span-2">1 special character</li>
+        </ol>
+
+        <input class="p-5 my-2 bg-slate-100 text-lg rounded-xl" name="pass2" type="password"
+               placeholder="Repeat password" required/>
+
+        <div class="grid grid-cols-2 gap-2">
+            <select class="p-5 my-2 bg-slate-100 text-md rounded-xl justify-self-start" name="secure" required>
+
+                <option value="yes">Secure</option>
+                <option value="no">Not so secure</option>
+
+            </select>
+            <button class="bg-orange-600 p-5 my-2 text-white rounded-lg justify-self-end" type="submit">Register</button>
+        </div>
+
+        <p class="p-5 self-start mt-2 text-white">Already have an account? <a href="{{ url_for('auth.login') }}"
+                                                              class="text-sky-300">Login</a></p>
+
+    </form>
+</div>
+
+
+{% endblock %}

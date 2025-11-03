@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}My Dollars{% endblock %}
+
+{% block content %}
+
+    <div class="container mx-auto px-8 py-8">
+        <!-- Header Section -->
+        <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+            <h1 class="text-3xl font-bold text-gray-800">Your current balance is {{ balance }}$</h1>
+        </div>
+
+        <div class="flex flex-row items-center justify-between py-6">
+            <h1 class="text-3xl font-bold text-gray-800">To add more dollars, choose an amount and a payment
+                method:</h1>
+        </div>
+
+        <div class="flex gap-8 w-10/12 m-auto my-2 text-lg">
+            <div class="grid grid-cols-2 bg-gray-100 text-gray-600 uppercase leading-normal w-full rounded-lg">
+                <p class="py-3 px-6 text-left">Amount:</p>
+            </div>
+            <div class="grid grid-cols-2 bg-gray-100 text-gray-600 uppercase leading-normal w-full rounded-lg">
+                <p class="py-3 px-6 text-left">Payment method:</p>
+            </div>
+        </div>
+
+        <form class="grid grid-rows-2" method="post">
+            <div class="flex gap-8 w-10/12 bg-white shadow rounded-lg m-auto text-lg">
+                <!-- Pokemons Section -->
+                <div class="w-full">
+                    <table class="w-full border-collapse max-h-fit">
+                        <tbody class="text-gray-700 text-md">
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="amount">5.00$</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="amount" name="amount" value="5">
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="amount">10.00$</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="amount" name="amount" value="10">
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="amount">25.00$</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="amount" name="amount" value="25">
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="amount">50.00$</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="amount" name="amount" value="50">
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- Sets Section -->
+                <div class="w-full">
+                    <table class="w-full border-collapse max-h-fit">
+                        <tbody class="text-gray-700 text-md">
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="method">Bank transaction</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="method" name="method" value="bank">
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="method">Crypto</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="method" name="method" value="crypto">
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">
+                                <label for="method">PayPal</label></td>
+                            <td class="py-3 px-6 text-right">
+                                <input type="radio" id="method" name="method" value="bank">
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition h-20 w-40 m-auto my-4">
+                Add Dollars
+            </button>
+        </form>
+
+    </div>
+
+{% endblock %}

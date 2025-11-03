@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Setup 2fa{% endblock %}
+
+{% block content %}
+
+    <div class="w-10/12 m-auto flex flex-row">
+        <h1 class="text-black text-5xl w-10/12 p-8">Setup 2fa</h1>
+    </div>
+
+    <div class="bg-yellow-400 w-1/3 m-auto mt-20 p-8 rounded-3xl my-10">
+
+        <form class="text-center mt-16 flex flex-col" method="post">
+
+            <ol class="w-12/12 m-auto text-left grid grid-row-4 gap-2">
+                <li class="text-black text-sm w-12/12 p-1">Instructions!</li>
+                <li class="text-black text-sm w-12/12 p-1">Download <a
+                        href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US"
+                        target="_blank">Google Authenticator</a> on your mobile.</li>
+                <li class="text-black text-sm w-12/12 p-1">Set up a new authenticator.</li>
+                <li class="text-black text-sm w-12/12 p-1">Scan the QR-code below:</li>
+            </ol>
+            <div class="m-auto w-full flex justify-center p-4">
+                <img src="data:image/png;base64, {{ qr_image }}" alt="Secret Token"
+                     style="width:200px;height:200px"/>
+            </div>
+            <p class="text-left">
+                Once you have scanned the QR, please click next.
+            </p>
+            <button class="bg-orange-600 p-5 my-2 text-white rounded-xl justify-self-end" type="submit">Next
+            </button>
+
+        </form>
+
+    </div>
+
+{% endblock %}

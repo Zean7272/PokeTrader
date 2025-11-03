@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Bid{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-8 py-8">
+
+        <div class="flex flex-row items-center justify-between py-6">
+            <h1 class="text-3xl font-bold text-gray-800">Card name & set</h1>
+        </div>
+
+        <div class="grid grid-cols-2 w-6/12 mx-auto my-4 p-2 border-b border-gray-300">
+            <div>
+                <img src="../../static/imgs/placeholder.gif" alt="image" class="rounded-3xl">
+            </div>
+
+            <div class="grid grid-rows-7">
+                <p class="text-lg">Pokemon name: </p>
+                <p class="text-lg">Set: </p>
+                <p class="text-lg">Type: </p>
+                <p class="text-lg">Weight: </p>
+                <p class="text-lg">Height: </p>
+                <p class="text-lg">Condition: </p>
+                <p class="text-lg">Minimum bid: $</p>
+                <form class="w-6/12 my-2 p-2 flex flex-col" method="post">
+                    <input class="p-2 my-2 bg-slate-100 text-xl rounded-xl" name="bid" type="number"
+                           value="40.00" readonly
+                           required/>
+                    <button class="bg-orange-600 p-2 my-2 text-white rounded-xl" type="submit">Remove bid
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

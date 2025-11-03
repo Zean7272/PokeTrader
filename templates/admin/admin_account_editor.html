@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<div class="bg-pink-800 w-11/12 md:w-1/2 lg:w-1/3 mx-auto p-8 rounded-3xl my-20 shadow-lg">
+    <form class="flex flex-col items-center" method="post">
+        <div class="w-full grid grid-cols-5 gap-4">
+            <input
+                class="p-4 my-2 bg-gray-100 text-lg rounded-xl col-span-5 md:col-span-3 focus:outline-none focus:ring focus:ring-pink-300"
+                name="username"
+                type="text"
+                placeholder="Username"
+                value="{{ result[1] }}"
+                required
+            />
+        </div>
+        <input
+            class="p-4 my-2 bg-gray-100 text-lg rounded-xl w-full focus:outline-none focus:ring focus:ring-pink-300"
+            name="email"
+            type="email"
+            placeholder="E-mail"
+            value="{{ result[2] }}"
+            required
+        />
+        <button
+            class="bg-green-600 hover:bg-green-500 p-4 my-2 text-white text-lg rounded-xl transition w-full md:w-1/3"
+            type="submit"
+        >
+            Edit
+        </button>
+    </form>
+</div>
+{% endblock %}

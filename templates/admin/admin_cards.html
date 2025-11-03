@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Cards Overview{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+        <h1 class="text-3xl font-bold text-gray-800">Cards overview:</h1>
+        <a href="{{ url_for('admin.admin_pokemons') }}">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">Add card</button>
+        </a>
+    </div>
+
+    {% if cards %}
+
+        <div class="w-10/12 grid grid-cols-5 gap-2 p-5 m-2 mx-auto rounded-3xl">
+            {% for row in cards %}
+                <a href="{{ url_for('admin.admin_card_info', id = row[0]) }}">
+                    <div class="p-4 m-2 rounded-3xl min-h-72" style="background: linear-gradient(to right, #ffcc00, #ff4444)">
+                        <img src="{{ url_for('image.serve_image', image_id = row[4]) }}" class="rounded-3xl">
+                        <p class="my-2 mx-auto text-md flex justify-center">{{ row[2] }}</p>
+                        <p class="my-2 mx-auto text-md flex justify-center">{{ row[3] }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <div class="flex flex-row items-center justify-between py-6">
+            <h1 class="text-3xl font-bold text-gray-800">You don't have any cards yet...</h1>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

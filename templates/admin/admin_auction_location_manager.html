@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Auction Location Overview{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+        <h1 class="text-3xl font-bold text-gray-800">Locations</h1>
+        <a href="{{ url_for('admin.admin_auction_location_register') }}">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">Add Location</button>
+        </a>
+    </div>
+
+    <!-- Table Section -->
+    <div class="overflow-hidden bg-white shadow rounded-lg mt-8">
+        <div class="overflow-x-auto">
+            <table class="min-w-full border-collapse">
+                <thead class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Id</th>
+                        <th class="py-3 px-6 text-left">Street</th>
+                        <th class="py-3 px-6 text-center">PostalCode</th>
+                        <th class="py-3 px-6 text-center">city</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm">
+                    {% for row in result %}
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left">{{ row[0] }}</td>
+                            <td class="py-3 px-6 text-left">{{ row[1] }}</td>
+                            <td class="py-3 px-6 text-left">{{ row[2] }}</td>
+                            <td class="py-3 px-6 text-left">{{ row[3] }}</td>
+                            <td class="py-3 px-6 text-center">
+                                <span class="text-gray-400 mx-2">|</span>
+                                <a href="{{ url_for('admin.admin_auction_location_deleter', id=row[0]) }}" class="text-red-500 hover:underline">Release</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

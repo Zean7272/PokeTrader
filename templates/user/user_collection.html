@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}My Collection{% endblock %}
+
+{% block content %}
+
+    <div class="container mx-auto px-8 py-8">
+        <!-- Header Section -->
+        <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+            <h1 class="text-3xl font-bold text-gray-800">My collection</h1>
+        </div>
+
+        {% if cards %}
+
+            <div class="w-10/12 grid grid-cols-5 gap-2 p-5 m-2 mx-auto rounded-3xl">
+                {% for row in cards %}
+                    <a href="{{ url_for('user.user_card', id = row[0]) }}">
+                        <div class="p-4 m-2 rounded-3xl" style="background: linear-gradient(to right, #ffcc00, #ff4444)">
+                            <img src="{{ url_for('image.serve_image', image_id = row[3]) }}" alt="image" class="rounded-3xl">
+                            <p class="my-2 mx-auto text-md flex justify-center">{{ row[1] }}</p>
+                            <p class="my-2 mx-auto text-md flex justify-center">{{ row[2] }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <div class="flex flex-row items-center justify-between py-6">
+                <h1 class="text-3xl font-bold text-gray-800">You don't have any cards yet...</h1>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+
+    <title> {% block title %}{% endblock %} - PokeTrader</title><style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .poke-header {
+            background: linear-gradient(to right, #ffcc00, #ff4444);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .poke-header a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .poke-header a:hover {
+            color: #ffcc00;
+        }
+
+        .poke-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .poke-navbar ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .poke-flash {
+            padding: 1rem;
+            background-color: #ff4444;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 1rem;
+            animation: flash-fade 10s forwards;
+        }
+
+        @keyframes flash-fade {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .poke-footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+{% block style %}{% endblock %}
+<body>
+<header class="poke-header">
+    <div class="poke-navbar">
+        <a href="{{ url_for('home') }}">
+            <span class="text-xl font-bold">PokeTrader</span>
+        </a>
+        <nav>
+            <ul>
+                {% if g.user %}
+                    {% if g.user[3] == 'user' %}
+                        {% for label, link in nav['user'].items() %}
+                            <li><a href="{{ url_for(link) }}">{{ label }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if g.user[3] == 'admin' %}
+                        {% for label, link in nav['admin'].items() %}
+                            <li><a href="{{ url_for(link) }}">{{ label }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    {% for label, link in nav['visitor'].items() %}
+                        <li><a href="{{ url_for(link) }}">{{ label }}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+{% for message in get_flashed_messages() %}
+    <div class="poke-flash">{{ message }}</div>
+{% endfor %}
+
+<main>
+    {% block content %} {% endblock %}
+</main>
+
+<footer class="poke-footer">
+    <p>&copy; 2024 PokeTrader. Gotta Trade 'Em All!</p>
+</footer>
+
+</body>
+</html>

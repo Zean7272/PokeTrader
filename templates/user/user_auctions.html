@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Auctions{% endblock %}
+
+{% block content %}
+
+    <div class="container mx-auto px-8 py-8">
+        <div class="flex flex-row items-center justify-between py-6 border-b border-gray-300">
+            <h1 class="text-3xl font-bold text-gray-800">Ongoing auctions:</h1>
+            <div class="justify-end">
+                <a href="">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">
+                        My bids
+                    </button>
+                </a>
+                <a href="">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-lg shadow hover:bg-blue-600 transition">
+                        History
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="w-10/12 grid grid-cols-3 p-5 m-2 mx-auto rounded-3xl">
+                <a href="">
+                    <div class="p-4 m-2 rounded-3xl grid grid-cols-2 gap-2" style="background: linear-gradient(to right, #ffcc00, #ff4444)">
+                        <img src="../../static/imgs/placeholder.gif" alt="image" class="rounded-3xl w-fit h-fit">
+                        <div>
+                            <p class="my-2 mx-auto text-md flex justify-center">Card name:</p>
+                            <p class="my-2 mx-auto text-md flex justify-center">Start date:</p>
+                            <p class="my-2 mx-auto text-md flex justify-center">End date:</p>
+                        </div>
+                    </div>
+                </a>
+        </div>
+    </div>
+
+{% endblock %}

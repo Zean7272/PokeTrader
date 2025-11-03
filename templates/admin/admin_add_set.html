@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Set{% endblock %}
+
+{% block content %}
+
+    <div class="w-10/12 m-auto flex flex-row">
+        <h1 class="text-black text-5xl w-10/12 p-8">Add a new set</h1>
+    </div>
+
+    <div class="bg-yellow-400 w-1/3 m-auto mt-20 p-8 rounded-3xl my-10">
+
+        <form class="text-center mt-16 flex flex-col" method="post">
+
+            <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="set" type="text"
+                   placeholder="Name"
+                   required/>
+            <button class="bg-orange-600 p-5 my-2 text-black rounded-xl justify-self-end" type="submit">Add
+                </button>
+        </form>
+
+    </div>
+{% endblock %}

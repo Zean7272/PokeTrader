@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Account register admin{% endblock %}
+
+{% block content %}
+
+<div class="bg-pink-800 w-1/3 m-auto p-8 rounded-3xl my-20">
+
+    <form class="text-center mt-4  flex flex-col" method="post">
+
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" name="name" type="text"
+               placeholder="name" required/>
+
+        <select class="p-5 my-2 bg-slate-100 text-lg rounded-xl justify-self-start" name="location_id" required>
+            {% for row in result %}
+            <option value="{{ row[0] }}"> {{ row[1] }} - {{ row[2] }} - {{ row[3] }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="start-time">Start Date and Time:</label>
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" type="datetime-local" id="start-time" name="start-time" required>
+        <br><br>
+        <label for="end-time">End Date and Time:</label>
+        <input class="p-5 my-2 bg-slate-100 text-xl rounded-xl" type="datetime-local" id="end-time" name="end-time" required>
+
+        <button class="bg-green-600 p-5 my-2 text-white w-1/3 self-end rounded-xl" type="submit">Add</button>
+
+    </form>
+</div>
+
+
+{% endblock %}

@@ -4,19 +4,13 @@ from sqlalchemy import create_engine, text
 db = 'poketrader'
 
 # user_connection = pymysql.connections.Connection(
-#     host='localhost',
-#     user='pokeUser',
-#     password='DitIs1User',
-#     database= db
+
 # )
 
 user_engine = create_engine("mysql+mysqlconnector://pokeUser:DitIs1User@localhost/poketrader")
 
 #admin_connection = pymysql.connections.Connection(
-#     host='localhost',
-#     user='pokeAdmin',
-#     password='DitIs1Admin',
-#     database= db
+
 # )
 
 admin_engine = create_engine("mysql+mysqlconnector://pokeAdmin:DitIs1Admin@localhost/poketrader")
